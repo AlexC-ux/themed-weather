@@ -12,6 +12,7 @@
     background: $serachBackground;
     border-radius: 1rem;
     padding: 0.5rem;
+    z-index: 900;
 }
 
 .serchResultsContainer {
@@ -20,6 +21,7 @@
     max-height: 250px;
     overflow-y: scroll;
     margin-top: 10px;
+    z-index: 9999;
 }
 
 .serchResult {

@@ -1,28 +1,194 @@
+@import "styles/global.theme.scss";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+$cornerRadius: 20px;
+
 .displayContainer {
     display: flex;
     height: 80vh;
-    background-color: aqua;
+    background-color: $BGCOLOR;
     padding: 5px;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    position: relative;
 }
 
 .currentWeather {
+    position: relative;
     display: block;
     margin: auto;
-    width: 380px;
-    height: 380px;
+    width: 340px;
+    height: 340px;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    background: $currentWeatherCardBg;
+    box-shadow: 2px 2px 20px black;
+    border-radius: $cornerRadius;
+    z-index: 300;
+    padding: 20px;
 }
 
-.currentWeather .degr{
+.currentWeather .degr {
+    text-align: center;
     display: block;
+    font-weight: 700;
+    font-size: 5rem;
+    color: $currentWeatherTempColor;
 }
 
-.currentWeather .city{
+.currentWeather .degr::after {
+    content: "°С";
+    margin-left: 10px;
+    color: $currentWeatherCelsiumColor;
+}
+
+
+.currentWeather .city {
+    text-align: center;
     display: block;
+    font-weight: 800;
+    font-size: 2rem;
+    color: $currentWeatherCityColor;
+}
+
+.currentWeather .windSpeed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    color: $currentWeatherWindTextColor;
+    font-weight: 600;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 15%;
+    padding: 10px;
+    border-radius: $cornerRadius 0px $cornerRadius 0px;
+    background-color: $currentWeatherWindBgColor;
+}
+
+.currentWeather .windSpeed::after {
+    display: block;
+    content: "м/с";
+}
+
+.currentWeather .precipitation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    color: $currentWeatherPrecipitationTextColor;
+    font-weight: 600;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 15%;
+    padding: 10px;
+    border-radius: 0px $cornerRadius 0px $cornerRadius;
+    background-color: $currentWeatherPrecipitationBgColor;
+}
+
+.currentWeather .precipitation::after {
+    display: block;
+    content: "мм";
+}
+
+.currentWeather .precipitationProbMax {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    color: $currentWeatherPrecipitationProbMaxTextColor;
+    font-weight: 600;
+    align-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35%;
+    height: 15%;
+    padding: 10px;
+    border-radius: 0px $cornerRadius 0px $cornerRadius;
+    background-color: $currentWeatherPrecipitationProbMaxBgColor;
+}
+
+.currentWeather .precipitationProbMax::after {
+    display: block;
+    content: "%";
+}
+
+.currentWeather .humidity {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    color: $currentWeatherHumidityTextColor;
+    font-weight: 600;
+    align-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    height: 15%;
+    padding: 10px;
+    border-radius: $cornerRadius 0px $cornerRadius 0px;
+    background-color: $currentWeatherHumidityBgColor;
+}
+
+.currentWeather .humidity::after {
+    display: block;
+    content: "%";
+}
+
+.params {
+    display: block;
+    margin-top: 20px;
+}
+
+.nextHourWeather {
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    background: $currentWeatherCardBg;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 20px;
+    z-index: 290;
+    padding: 20px;
+}
+
+@media (min-width:730px) {
+    .nextHourWeather {
+        position: absolute;
+        left: 50%;
+        top: 28%;
+        margin-left: 170px;
+    }
+
+    .displayContainer {
+        margin-left: -350px;
+    }
+}
+
+@media (max-width:730px) {
+    .nextHourWeather {
+        position: relative;
+        margin-top: -10%;
+    }
 }
