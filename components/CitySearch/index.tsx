@@ -52,7 +52,8 @@ export function CitySearch() {
                                 key={`city_${city.id}`}
                                 className={styles.serchResult}
                                 onClick={() => {
-                                    location.setLocation({ latitude: city.latitude, longitude: city.longitude, name: city.name })
+                                    location.setLocation({ latitude: city.latitude, longitude: city.longitude, name: city.name });
+                                    setDataListCities([]);
                                 }}>
                                 <div className={styles.cityName}>
                                     {city.name}
