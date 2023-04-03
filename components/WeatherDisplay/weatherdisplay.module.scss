@@ -1,0 +1,28 @@
+.displayContainer {
+    display: flex;
+    height: 80vh;
+    background-color: aqua;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.currentWeather {
+    display: block;
+    margin: auto;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.currentWeather .degr{
+    display: block;
+}
+
+.currentWeather .city{
+    display: block;
+}

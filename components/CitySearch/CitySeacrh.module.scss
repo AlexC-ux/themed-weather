@@ -1,0 +1,41 @@
+@import "styles/global.theme.scss";
+
+.searchContainer {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.searchContainer input {
+    width: 100%;
+    display: block;
+    background: $serachBackground;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.serchResultsContainer {
+    position: absolute;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: scroll;
+    margin-top: 10px;
+}
+
+.serchResult {
+    background: $searchResultBg;
+    width: auto;
+    cursor: pointer;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px gray;
+}
+
+.serchResult .cityName {
+    font-weight: 700;
+}
+
+.serchResult .countryInfo {
+    font-weight: 400;
+}
