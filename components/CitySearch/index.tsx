@@ -42,7 +42,8 @@ export function CitySearch() {
                 type="text"
                 name="city"
                 list="cities"
-                onChange={getCity} />
+                onChange={getCity} 
+                placeholder="Введите город"/>
             <div className={styles.serchResultsContainer}>
                 {
                     dataListCities?.map((city, index) => {
