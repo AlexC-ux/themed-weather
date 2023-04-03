@@ -81,24 +81,24 @@ export function WeatherDisplay() {
                     </div>
                     <div>
                         <div className={styles.params}>
-                            <div className={styles.windSpeed}>
+                            <div className={`${styles.windSpeed} ${styles.weatherParam} ${styles.topLeft}`}>
                                 <span className="material-symbols-outlined">
                                     air
                                 </span>{weather?.current_weather.windspeed}
                             </div>
-                            <div className={styles.precipitation}>
+                            <div className={`${styles.precipitation} ${styles.weatherParam} ${styles.topRight}`}>
                                 <span className="material-symbols-outlined">
                                     umbrella
                                 </span>{weather?.daily.precipitation_sum[0]}
                             </div>
-                            <div className={styles.precipitationProbMax}>
+                            <div className={`${styles.precipitationProbMax} ${styles.weatherParam} ${styles.bottomLeft}`}>
                                 <span className="material-symbols-outlined">
                                     rainy
                                 </span>{weather?.daily.precipitation_probability_max[0]}
                             </div>
-                            <div className={styles.humidity}>
+                            <div className={`${styles.humidity} ${styles.weatherParam} ${styles.bottomRight}`}>
                                 <span className="material-symbols-outlined">
-                                    airwave
+                                    humidity_mid
                                 </span>{weather?.hourly.relativehumidity_2m[new Date().getHours()]}
                             </div>
                         </div>

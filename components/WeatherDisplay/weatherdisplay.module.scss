@@ -56,98 +56,84 @@ $cornerRadius: 20px;
     color: $currentWeatherCityColor;
 }
 
-.currentWeather .windSpeed {
+.params .weatherParam {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     font-size: 1.5rem;
-    color: $currentWeatherWindTextColor;
     font-weight: 600;
     align-content: center;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 35%;
     height: 15%;
     padding: 10px;
+}
+
+.topLeft {
+    top: 0;
+    left: 0;
     border-radius: $cornerRadius 0px $cornerRadius 0px;
+}
+
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+    border-radius: $cornerRadius 0px $cornerRadius 0px;
+}
+
+.topRight {
+    top: 0;
+    right: 0;
+    border-radius: 0px $cornerRadius 0px $cornerRadius;
+}
+
+.bottomRight {
+    bottom: 0;
+    right: 0;
+    border-radius: 0px $cornerRadius 0px $cornerRadius;
+}
+
+.params .windSpeed {
+    color: $currentWeatherWindTextColor;
     background-color: $currentWeatherWindBgColor;
 }
 
-.currentWeather .windSpeed::after {
+.params .windSpeed::after {
     display: block;
     content: "м/с";
 }
 
-.currentWeather .precipitation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    font-size: 1.5rem;
+.params .precipitation {
     color: $currentWeatherPrecipitationTextColor;
-    font-weight: 600;
-    align-content: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 35%;
-    height: 15%;
-    padding: 10px;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
     background-color: $currentWeatherPrecipitationBgColor;
 }
 
-.currentWeather .precipitation::after {
+.params .precipitation::after {
     display: block;
     content: "мм";
 }
 
-.currentWeather .precipitationProbMax {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    font-size: 1.5rem;
+.params .precipitationProbMax {
     color: $currentWeatherPrecipitationProbMaxTextColor;
-    font-weight: 600;
-    align-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 35%;
-    height: 15%;
-    padding: 10px;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
     background-color: $currentWeatherPrecipitationProbMaxBgColor;
 }
 
-.currentWeather .precipitationProbMax::after {
+.params .precipitationProbMax::after {
     display: block;
     content: "%";
 }
 
-.currentWeather .humidity {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    font-size: 1.5rem;
+.params .humidity {
     color: $currentWeatherHumidityTextColor;
-    font-weight: 600;
-    align-content: center;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 35%;
-    height: 15%;
-    padding: 10px;
+
     border-radius: $cornerRadius 0px $cornerRadius 0px;
     background-color: $currentWeatherHumidityBgColor;
 }
 
-.currentWeather .humidity::after {
+.params .humidity::after {
     display: block;
     content: "%";
 }
