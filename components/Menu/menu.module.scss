@@ -109,3 +109,28 @@
     color: #eae273;
     margin-right: 10px;
 }
+
+.funcButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 45px;
+    padding: 10px;
+}
+
+.funcBtn {
+    padding: 5px;
+    height: 25px;
+    border-radius: 10px;
+    background: #505050;
+    box-shadow: 2px 2px 9px #2e2e2e;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    align-content: center;
+    cursor: pointer;
+}

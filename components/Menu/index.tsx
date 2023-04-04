@@ -21,7 +21,7 @@ export function Menu() {
 
     function updateParam(props: { paramName: cssParamType, value: string }) {
         document.documentElement.style.setProperty(`--${props.paramName}`, props.value)
-        console.log(props)
+        window.localStorage.setItem(`cutom-color-param_${props.paramName}_`, props.value)
     }
 
     function showMenu() {
@@ -42,17 +42,25 @@ export function Menu() {
 
         useEffect(() => {
             const propValue = getComputedStyle(document.documentElement).getPropertyValue(`--${props.paramName}`).trim();
-            console.log({ propValue })
-            if (propValue.startsWith("#")) {
-                inputRef.current!.setAttribute("value", propValue)
-            } else if (propValue.startsWith("rgb")) {
-                const vals = /rgb\((\d{1,3})[, ]+(\d{1,3})[, ]+(\d{1,3})\)/gm.exec(propValue)!
-                console.log({ vals })
-                const hexValue = rgbToHex(Number(vals[1]), Number(vals[2]), Number(vals[3]))
-                console.log({ r: vals[1], g: vals[2], b: vals[3] })
-                inputRef.current!.setAttribute("value", hexValue)
+            const customPropValue = window.localStorage.getItem(`cutom-color-param_${props.paramName}_`);
+
+            if (customPropValue == null) {
+                console.log({ propValue })
+                if (propValue.startsWith("#")) {
+                    inputRef.current!.setAttribute("value", propValue)
+                } else if (propValue.startsWith("rgb")) {
+                    const vals = /rgb\((\d{1,3})[, ]+(\d{1,3})[, ]+(\d{1,3})\)/gm.exec(propValue)!
+                    console.log({ vals })
+                    const hexValue = rgbToHex(Number(vals[1]), Number(vals[2]), Number(vals[3]))
+                    console.log({ r: vals[1], g: vals[2], b: vals[3] })
+                    inputRef.current!.setAttribute("value", hexValue)
+                } else {
+                    console.log("no rule")
+                }
             } else {
-                console.log("no rule")
+                console.log({ customPropValue });
+                inputRef.current!.setAttribute('value', customPropValue);
+                updateParam({ paramName: props.paramName, value: customPropValue })
             }
         })
 
@@ -96,6 +104,12 @@ export function Menu() {
                 display: !!menuShown ? "block" : "none"
             }}>
             <div className={styles.menuItems}>
+                <div className={styles.funcButtons}>
+                    <div className={styles.funcBtn}
+                        onClick={() => { window.localStorage.clear(); document.location.reload() }}>
+                        Сброс настроек
+                    </div>
+                </div>
                 <UpdateParamField text="Фон скорости ветра" paramName='currentWeatherWindBgColor' />
                 <UpdateParamField text="Цвет скорости ветра" paramName='currentWeatherWindTextColor' />
 

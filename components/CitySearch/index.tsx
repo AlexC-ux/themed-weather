@@ -60,7 +60,7 @@ export function CitySearch() {
                         setResultVisibile(true)
                     }
                 }}
-                 />
+            />
             <div
                 className={styles.serchResultsContainer}
                 style={{ display: !!resultsVisible ? "block" : "none" }}>
@@ -74,6 +74,7 @@ export function CitySearch() {
                                     location.setLocation({ latitude: city.latitude, longitude: city.longitude, name: city.name });
                                     setResultVisibile(false)
                                     searchInputRef.current!.value = city.name;
+                                    window.localStorage.setItem("last_city", `${city.longitude}_${city.latitude}_${city.name}`)
                                 }}>
                                 <div className={styles.cityName}>
                                     {city.name}
