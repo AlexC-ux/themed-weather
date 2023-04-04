@@ -5,9 +5,19 @@ $serachBackground: rgb(94, 203, 150);
 $currentWeatherCardBg: rgb(58, 58, 58);
 $currentWeatherCityColor: rgb(156 147 96);
 $currentWeatherTempColor: rgb(222 203 99);
+$currentWeatherCardShadow: 2px 2px 20px black;
+
+$currentDateTextColor: #ffffff;
+
+$currentWeatherSunriseColor: #ffca35;
+$currentWeatherSunsetColor: #a59ab2;
+
+$currentAppearentWeatherTempTextColor: #ddda9c;
 
 $currentWeatherWindTextColor: rgb(255, 255, 255);
 $currentWeatherWindBgColor: rgb(94 155 255);
+
+$WeatherCodeIconColor: #ea6868;
 
 $currentWeatherPrecipitationBgColor: rgb(133, 115, 254);
 $currentWeatherPrecipitationTextColor: rgb(255, 255, 255);
@@ -20,4 +30,4 @@ $currentWeatherHumidityTextColor: rgb(255, 255, 255);
 
 $currentWeatherCelsiumColor: rgb(255, 255, 255);
 
-$BGCOLOR:#525252;
+$BGCOLOR: #525252;

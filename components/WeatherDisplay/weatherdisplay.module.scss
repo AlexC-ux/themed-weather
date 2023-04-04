@@ -15,11 +15,11 @@ $cornerRadius: 20px;
     align-content: center;
     position: relative;
     min-height: 800px;
+    align-items: center;
 }
 
 .currentWeather {
     position: relative;
-    display: block;
     margin: auto;
     width: 340px;
     height: 340px;
@@ -28,28 +28,39 @@ $cornerRadius: 20px;
     align-content: center;
     flex-wrap: wrap;
     background: $currentWeatherCardBg;
-    box-shadow: 2px 2px 20px black;
+    box-shadow: $currentWeatherCardShadow;
     border-radius: $cornerRadius;
     z-index: 300;
     padding: 20px;
 }
 
-.currentWeather .degr {
+.displayContainer .degr {
     text-align: center;
     display: block;
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 3.5rem;
     color: $currentWeatherTempColor;
 }
 
-.currentWeather .degr::after {
+.displayContainer .apparent_temp {
+    margin: 5px;
+    text-align: center;
+    color: $currentAppearentWeatherTempTextColor;
+    font-weight: 500;
+}
+
+.displayContainer .apparent_temp::after {
+    content: '°C';
+}
+
+.displayContainer .degr::after {
     content: "°С";
     margin-left: 10px;
     color: $currentWeatherCelsiumColor;
 }
 
 
-.currentWeather .city {
+.displayContainer .city {
     text-align: center;
     display: block;
     font-weight: 800;
@@ -71,25 +82,106 @@ $cornerRadius: 20px;
     padding: 10px;
 }
 
-.topLeft {
+.mainContent {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 70%;
+    align-content: center;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.params .topLeft {
     top: 0;
     left: 0;
     border-radius: $cornerRadius 0px $cornerRadius 0px;
 }
 
-.bottomLeft {
+.params .bottomLeft {
     bottom: 0;
     left: 0;
     border-radius: $cornerRadius 0px $cornerRadius 0px;
 }
 
-.topRight {
+.params .topCenter {
+    top: 0;
+    left: 40%;
+    width: 20%;
+    padding: 10px 0 0 0;
+    font-size: 1rem;
+}
+
+.params .bottomCenter {
+    bottom: 0;
+    left: 40%;
+    width: 20%;
+    padding: 10px 0 0 0;
+    font-size: 1rem;
+}
+
+.params .leftCenter {
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: calc(100% - 20px);
+}
+
+.params .rightCenter {
+    top: 0;
+    right: 0;
+    width: 15%;
+    height: calc(100% - 20px);
+}
+
+.params .sunrise {
+    font-weight: 300;
+    color: $currentWeatherSunriseColor;
+}
+
+.params .sunset {
+    font-weight: 300;
+    color: $currentWeatherSunsetColor;
+}
+
+
+.params .date {
+    color: $currentDateTextColor;
+    font-size: 1.1rem;
+}
+
+.params .weatherCode{
+    color: $WeatherCodeIconColor;
+    font-size: 3rem;
+}
+
+.params .centeredIcon {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.params .flexIcon {
+    display: flex;
+    height: 50%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.params .topRight {
     top: 0;
     right: 0;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
 }
 
-.bottomRight {
+.params .bottomRight {
     bottom: 0;
     right: 0;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
@@ -129,7 +221,6 @@ $cornerRadius: 20px;
 
 .params .humidity {
     color: $currentWeatherHumidityTextColor;
-
     border-radius: $cornerRadius 0px $cornerRadius 0px;
     background-color: $currentWeatherHumidityBgColor;
 }
@@ -144,7 +235,7 @@ $cornerRadius: 20px;
     margin-top: 20px;
 }
 
-.nextHourWeather {
+.nextDayWeather {
     display: block;
     margin: auto;
     width: 300px;
@@ -161,21 +252,24 @@ $cornerRadius: 20px;
 }
 
 @media (min-width:730px) {
-    .nextHourWeather {
-        position: absolute;
-        left: 50%;
-        top: 28%;
-        margin-left: 170px;
+    .nextDayWeather {
+        position: relative;
+        margin-left: 5px;
     }
 
-    .displayContainer {
-        margin-left: -350px;
+
+    .currentWeather {
+        margin-right: 0;
     }
 }
 
 @media (max-width:730px) {
-    .nextHourWeather {
+    .nextDayWeather {
         position: relative;
-        margin-top: -10%;
+        margin: 10px;
+    }
+
+    .currentWeather {
+        margin: 10px;
     }
 }
