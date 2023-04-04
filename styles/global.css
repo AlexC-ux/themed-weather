@@ -2,6 +2,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 :root {
     --searchResultBg: rgb(235 235 235);
     --serachBackground: rgb(255, 255, 255);

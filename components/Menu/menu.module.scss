@@ -64,17 +64,17 @@
 }
 
 .menuContainer {
-    transition: 1s;
     position: absolute;
     right: 0;
     top: 0;
-    width: 600px;
+    width: 450px;
     background: #444444;
     z-index: 999998;
     padding: 1rem;
     padding-top: 80px;
     height: calc(100vh - 1rem - 80px);
     overflow-y: scroll;
+    box-shadow: 0px 2px 6px black;
 }
 
 @media (max-width:700px) {
@@ -118,6 +118,7 @@
     font-weight: 600;
     color: #eae273;
     margin-right: 10px;
+    max-width: 250px;
 }
 
 .funcButtons {

@@ -11,7 +11,8 @@ type cssParamType = 'searchResultBg' | 'serachBackground' | 'currentWeatherCardB
     'currentWeatherWindTextColor' | 'currentWeatherWindBgColor' | 'WeatherCodeIconColor' | 'currentWeatherPrecipitationBgColor'
     | 'currentWeatherPrecipitationTextColor' | 'currentWeatherPrecipitationProbMaxBgColor' |
     'currentWeatherHumidityBgColor' | 'currentWeatherHumidityTextColor' | 'currentWeatherCelsiumColor' |
-    'BGCOLOR' | 'currentWeatherPrecipitationProbMaxTextColor'
+    'BGCOLOR' | 'currentWeatherPrecipitationProbMaxTextColor' | 'hourlyCardBg' | 'hourlyDateText' | 'hourlyTempText' |
+    'hourlyAppearentTempText' | 'hourlyHumidityText' | 'hourlyWeathercode'
 
 export function Menu() {
 
@@ -27,7 +28,8 @@ export function Menu() {
     function showMenu() {
         if (!menuShown) {
             setMenuShow(!menuShown)
-            document.documentElement.style.overflow = "hidden"
+            document.documentElement.style.overflow = "hidden";
+            document.documentElement.style.scrollBehavior = ""
             setIconClasses(`${styles.menuIcon} ${styles.menuOpened}`)
         } else {
             setMenuShow(!menuShown)
@@ -96,7 +98,7 @@ export function Menu() {
         <div
             className={`${styles.menuContainer}`}
             style={{
-                display: !!menuShown ? "block" : "none"
+                display: !!menuShown ? "block" : "none",
             }}>
             <div className={styles.menuItems}>
                 <div className={styles.funcButtons}>
@@ -105,6 +107,7 @@ export function Menu() {
                         Сброс настроек
                     </div>
                 </div>
+
                 <div className={styles.settingsCategory}>Настройки карточки</div>
                 <UpdateParamField text="Фон скорости ветра" paramName='currentWeatherWindBgColor' />
                 <UpdateParamField text="Цвет скорости ветра" paramName='currentWeatherWindTextColor' />
@@ -125,7 +128,7 @@ export function Menu() {
 
                 <UpdateParamField text="Цвет даты" paramName="currentDateTextColor" />
 
-                <UpdateParamField text="Цвет 'ощущается как'" paramName="currentAppearentWeatherTempTextColor" />
+                <UpdateParamField text="Цвет ощущаемой температуры" paramName="currentAppearentWeatherTempTextColor" />
 
                 <UpdateParamField text="Цвет города" paramName="currentWeatherCityColor" />
 
@@ -136,6 +139,15 @@ export function Menu() {
                 <UpdateParamField text="Цвет иконки погоды" paramName="WeatherCodeIconColor" />
 
                 <UpdateParamField text="Фон карточки погоды" paramName="currentWeatherCardBg" />
+
+                <div className={styles.settingsCategory}>Настройки почасовых данных</div>
+                <UpdateParamField text="Фон почасовой погоды" paramName='hourlyCardBg' />
+                <UpdateParamField text="Цвет почасовой температуры" paramName='hourlyTempText' />
+                <UpdateParamField text="Цвет почасовой влажности" paramName='hourlyHumidityText' />
+                <UpdateParamField text="Цвет почасовой иконки" paramName='hourlyWeathercode' />
+                <UpdateParamField text="Цвет почасовой ощущаемой температуры" paramName='hourlyAppearentTempText' />
+                <UpdateParamField text="Цвет почасовой даты" paramName='hourlyDateText' />
+
             </div>
         </div>
     </div>
