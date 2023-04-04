@@ -272,7 +272,7 @@ export function WeatherDisplay() {
             className={styles.hourlyWeather}
         >
             {weather?.hourly.time.map((val, index, arr) => {
-                return <div className={styles.hourlyWeatherItem}>
+                return <div className={styles.hourlyWeatherItem} key={`hourly_${val}`}>
                     <div className={styles.time}>{new Date(val).toLocaleDateString("ru", { day: "2-digit", month: "2-digit" })}<br />{new Date(val).toLocaleTimeString("ru", { hour: "2-digit" })}:00</div>
                     <div className={styles.temp}>{weather.hourly.temperature_2m[index]}</div>
                     <div className={styles.apparent_temp}><MdAccessibility />{weather.hourly.apparent_temperature[index]}</div>
