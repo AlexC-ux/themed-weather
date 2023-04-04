@@ -35,7 +35,7 @@ body {
     --currentWeatherPrecipitationProbMaxTextColor: rgb(255, 255, 255);
 
     --currentWeatherHumidityBgColor: rgb(254, 194, 115);
-    --currentWeatherHumidityTextColor: rgb(255, 255, 255);
+    --currentWeatherHumidityTextColor: rgb(255, 254, 253);
 
     --currentWeatherCelsiumColor: rgb(255, 255, 255);
 
@@ -43,8 +43,8 @@ body {
 
     --hourlyCardBg: linear-gradient(-45deg, #3d3dc0, #7759c3 80%);
     --hourlyDateText: #00ffa4;
-    --hourlyTempText: #fff;
+    --hourlyTempText: #ffffff;
     --hourlyAppearentTempText: #2affa4;
     --hourlyHumidityText: #95c3ff;
-    --hourlyWeathercode: #fff;
+    --hourlyWeathercode: #ffffff;
 }
