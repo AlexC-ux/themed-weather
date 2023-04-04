@@ -74,12 +74,22 @@
     padding: 1rem;
     padding-top: 80px;
     height: calc(100vh - 1rem - 80px);
+    overflow-y: scroll;
 }
 
 @media (max-width:700px) {
     .menuContainer {
         width: calc(100% - 2rem);
     }
+}
+
+.settingsCategory {
+    font-size: 1.7rem;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .menuItems {

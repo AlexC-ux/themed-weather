@@ -105,6 +105,7 @@ export function Menu() {
                         Сброс настроек
                     </div>
                 </div>
+                <div className={styles.settingsCategory}>Настройки карточки</div>
                 <UpdateParamField text="Фон скорости ветра" paramName='currentWeatherWindBgColor' />
                 <UpdateParamField text="Цвет скорости ветра" paramName='currentWeatherWindTextColor' />
 
@@ -124,7 +125,7 @@ export function Menu() {
 
                 <UpdateParamField text="Цвет даты" paramName="currentDateTextColor" />
 
-                <UpdateParamField text="Цвет ощущаемой температуры" paramName="currentAppearentWeatherTempTextColor" />
+                <UpdateParamField text="Цвет 'ощущается как'" paramName="currentAppearentWeatherTempTextColor" />
 
                 <UpdateParamField text="Цвет города" paramName="currentWeatherCityColor" />
 
