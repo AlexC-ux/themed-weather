@@ -1,7 +1,8 @@
-import { CitySearch } from '@/components/CitySearch'
 import { WeatherDisplay } from '@/components/WeatherDisplay'
 import { LocationContextWrapper } from '@/contextes/LocationContext'
 import Head from 'next/head'
+import styles from "@/styles/indexPage.module.scss";
+import { Menu } from '@/components/Menu';
 
 export default function Home() {
   return (
@@ -12,14 +13,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={`${styles.bgColored}`}>
         <LocationContextWrapper>
-          <div
-            style={{
-              width: "200px"
-            }}>
-            <CitySearch />
-          </div>
+          <Menu/>
           <WeatherDisplay />
           <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
         </LocationContextWrapper>

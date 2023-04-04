@@ -7,22 +7,21 @@ $cornerRadius: 20px;
 
 .displayContainer {
     display: flex;
-    height: 80vh;
-    background-color: $BGCOLOR;
     padding: 5px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-content: center;
     position: relative;
-    min-height: 800px;
     align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .currentWeather {
     position: relative;
     margin: auto;
-    width: 340px;
-    height: 340px;
+    width: 350px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -238,8 +237,8 @@ $cornerRadius: 20px;
 .nextDayWeather {
     display: block;
     margin: auto;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -254,9 +253,8 @@ $cornerRadius: 20px;
 @media (min-width:730px) {
     .nextDayWeather {
         position: relative;
-        margin-left: 5px;
+        margin-left: 20px;
     }
-
 
     .currentWeather {
         margin-right: 0;
@@ -269,6 +267,10 @@ $cornerRadius: 20px;
         margin: 10px;
     }
 
+    .displayContainer{
+        flex-wrap: wrap;
+    }
+    
     .currentWeather {
         margin: 10px;
     }

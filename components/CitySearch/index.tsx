@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { createRef } from "react";
+import { createRef, useContext, useEffect, useState } from "react";
 import { ChangeEvent } from "react";
 import styles from "./CitySeacrh.module.scss";
 import { locationContext } from "@/contextes/LocationContext";
@@ -26,25 +25,45 @@ export function CitySearch() {
 
     const location = useContext(locationContext)
 
+    const searchInputRef = createRef<HTMLInputElement>();
+    const [resultsVisible, setResultVisibile] = useState(false)
+
 
     function getCity(changeEvent: ChangeEvent<HTMLInputElement>) {
         fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(changeEvent.target.value)}&language=ru&count=50&format=json`).then(resp => {
             resp.json().then((data: { generationtime_ms: number, results: ICityData[] }) => {
-                setDataListCities(data.results)
-                changeEvent.preventDefault();
+                setDataListCities(data.results);
             })
-        })
+        });
+
     }
+
+    useEffect(() => {
+        if (dataListCities?.length > 0) {
+            setResultVisibile(true);
+        } else {
+            setResultVisibile(false);
+        }
+    }, [dataListCities])
 
     return (
         <div className={styles.searchContainer}>
             <input
+                ref={searchInputRef}
                 type="text"
                 name="city"
                 list="cities"
-                onChange={getCity} 
-                placeholder="Введите город"/>
-            <div className={styles.serchResultsContainer}>
+                onChange={getCity}
+                placeholder="Введите город"
+                onClick={(input) => {
+                    if (dataListCities?.length > 0) {
+                        setResultVisibile(true)
+                    }
+                }}
+                 />
+            <div
+                className={styles.serchResultsContainer}
+                style={{ display: !!resultsVisible ? "block" : "none" }}>
                 {
                     dataListCities?.map((city, index) => {
                         return (
@@ -53,7 +72,8 @@ export function CitySearch() {
                                 className={styles.serchResult}
                                 onClick={() => {
                                     location.setLocation({ latitude: city.latitude, longitude: city.longitude, name: city.name });
-                                    setDataListCities([]);
+                                    setResultVisibile(false)
+                                    searchInputRef.current!.value = city.name;
                                 }}>
                                 <div className={styles.cityName}>
                                     {city.name}

@@ -1,0 +1,43 @@
+.menuRow {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+@media (max-width:600px) {
+    .menuRow {
+        justify-content: space-between;
+    }
+
+    .search {
+        max-width: 200px;
+    }
+}
+
+.search {
+    margin-right: 20px;
+    width: 400px;
+}
+
+.menuButton {
+    width: 36px;
+    padding: 6px;
+    height: 36px;
+    background: rgb(104, 146, 188);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 9px #2e2e2e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}

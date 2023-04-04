@@ -2,7 +2,7 @@ import { createRef, useContext, useEffect, useState } from "react"
 import styles from "./weatherdisplay.module.scss"
 import { locationContext } from "@/contextes/LocationContext"
 import { WiSunrise, WiSunset, WiStrongWind, WiUmbrella, WiRain, WiDaySunny, WiDayCloudy, WiFog, WiRainMix, WiSleet, WiRainWind, WiSnowWind, WiSnow, WiShowers, WiStormShowers, WiThunderstorm } from "react-icons/wi";
-import { MdCalendarMonth,MdOutlineWaterDrop } from "react-icons/md";
+import { MdCalendarMonth, MdOutlineWaterDrop } from "react-icons/md";
 
 
 export interface Root {
@@ -146,10 +146,10 @@ export function WeatherDisplay() {
                     <div className={`${styles.mainContent}`}>
                         <div
                             className={styles.degr}>
-                            {weather?.current_weather.temperature}
+                            {weather?.current_weather.temperature.toFixed(2)}
                         </div>
                         <div className={styles.apparent_temp}>
-                            Ощущается как {weather?.hourly.apparent_temperature[new Date().getHours()]}
+                            Ощущается как {weather?.hourly.apparent_temperature[new Date().getHours()].toFixed(1)}
                         </div>
                         <div className={styles.city}>
                             {location.location.name}
@@ -195,7 +195,7 @@ export function WeatherDisplay() {
                                 {weather?.daily.precipitation_probability_max[0]}
                             </div>
                             <div className={`${styles.humidity} ${styles.weatherParam} ${styles.bottomRight}`}>
-                                <MdOutlineWaterDrop className={styles.flexIcon}/>
+                                <MdOutlineWaterDrop className={styles.flexIcon} />
                                 {weather?.hourly.relativehumidity_2m[new Date().getHours()]}
                             </div>
                         </div>
@@ -206,10 +206,7 @@ export function WeatherDisplay() {
                 <div className={`${styles.mainContent}`}>
                     <div
                         className={styles.degr}>
-                        {!!weather ? (weather?.daily.temperature_2m_max[1] + weather?.daily.temperature_2m_min[1]) / 2 : ""}
-                    </div>
-                    <div className={styles.apparent_temp}>
-                        Ощущается как {weather?.hourly.apparent_temperature[tomorrowDate.getHours() + 24]}
+                        {!!weather ? (weather?.daily.temperature_2m_max[1]).toFixed(1) : ""}
                     </div>
                     <div className={styles.city}>
                         {location.location.name}
