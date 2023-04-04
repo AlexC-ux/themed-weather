@@ -45,20 +45,16 @@ export function Menu() {
             const customPropValue = window.localStorage.getItem(`cutom-color-param_${props.paramName}_`);
 
             if (customPropValue == null) {
-                console.log({ propValue })
                 if (propValue.startsWith("#")) {
                     inputRef.current!.setAttribute("value", propValue)
                 } else if (propValue.startsWith("rgb")) {
                     const vals = /rgb\((\d{1,3})[, ]+(\d{1,3})[, ]+(\d{1,3})\)/gm.exec(propValue)!
-                    console.log({ vals })
                     const hexValue = rgbToHex(Number(vals[1]), Number(vals[2]), Number(vals[3]))
-                    console.log({ r: vals[1], g: vals[2], b: vals[3] })
                     inputRef.current!.setAttribute("value", hexValue)
                 } else {
-                    console.log("no rule")
+                    console.error("no rule")
                 }
             } else {
-                console.log({ customPropValue });
                 inputRef.current!.setAttribute('value', customPropValue);
                 updateParam({ paramName: props.paramName, value: customPropValue })
             }
@@ -69,7 +65,6 @@ export function Menu() {
         function rgbToHex(red: number, green: number, blue: number) {
             function ColorToHex(color: number) {
                 var hexadecimal = color.toString(16);
-                console.log({ color, hexadecimal })
                 return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
             }
             return "#" + ColorToHex(red) + ColorToHex(green) + ColorToHex(blue);

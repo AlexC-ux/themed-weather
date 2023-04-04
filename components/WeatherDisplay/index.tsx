@@ -79,8 +79,11 @@ export function WeatherDisplay() {
     const tomorrowDate = new Date();
     tomorrowDate.setDate(nowDate.getDate() + 1)
 
+    let fetchWeatherController = new AbortController();
     useEffect(() => {
-        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${location.location.latitude}&longitude=${location.location.longitude}&hourly=windspeed_10m,relativehumidity_2m,temperature_2m,apparent_temperature&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,sunrise,sunset,precipitation_probability_max&forecast_days=2&timezone=Europe/Moscow`).then(data => {
+        fetchWeatherController.abort();
+        fetchWeatherController = new AbortController();
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${location.location.latitude}&longitude=${location.location.longitude}&hourly=windspeed_10m,relativehumidity_2m,temperature_2m,apparent_temperature&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,sunrise,sunset,precipitation_probability_max&forecast_days=2&timezone=Europe/Moscow`, { signal: fetchWeatherController.signal }).then(data => {
             data.json().then((weather: Root) => {
                 setWeather(weather);
             })

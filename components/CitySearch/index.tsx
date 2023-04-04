@@ -28,6 +28,17 @@ export function CitySearch() {
     const searchInputRef = createRef<HTMLInputElement>();
     const [resultsVisible, setResultVisibile] = useState(false)
 
+    useEffect(() => {
+        const city = window.localStorage.getItem("last_city")
+        console.log({ city })
+        if (!!city) {
+            const cityLocation = { longitude: Number(city.split("_")[0]), latitude: Number(city.split("_")[1]), name: city.split("_")[2] }
+            if ((cityLocation.longitude != location.location.longitude) || (cityLocation.latitude != location.location.latitude)) {
+                location.setLocation(cityLocation)
+                searchInputRef.current!.value = cityLocation.name;
+            }
+        }
+    })
 
     function getCity(changeEvent: ChangeEvent<HTMLInputElement>) {
         fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(changeEvent.target.value)}&language=ru&count=50&format=json`).then(resp => {
