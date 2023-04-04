@@ -371,3 +371,8 @@ $cornerRadius: 20px;
 .hourlyWeatherItem .humidity svg {
     font-size: 1rem;
 }
+
+.hourlyWeatherCode{
+    color: $hourlyWeathercode;
+    font-size: 2rem;
+}
