@@ -1,33 +1,33 @@
-$searchResultBg: rgb(235 235 235);
-$serachBackground: rgb(255, 255, 255);
+$searchResultBg: var(--searchResultBg);
+$serachBackground: var(--serachBackground);
 
 
-$currentWeatherCardBg: rgb(58, 58, 58);
-$currentWeatherCityColor: rgb(156 147 96);
-$currentWeatherTempColor: rgb(222 203 99);
-$currentWeatherCardShadow: 2px 2px 20px black;
+$currentWeatherCardBg: var(--currentWeatherCardBg);
+$currentWeatherCityColor: var(--currentWeatherCityColor);
+$currentWeatherTempColor: var(--currentWeatherTempColor);
+$currentWeatherCardShadow: var(--currentWeatherCardShadow);
 
-$currentDateTextColor: #ffffff;
+$currentDateTextColor: var(--currentDateTextColor);
 
-$currentWeatherSunriseColor: #ffca35;
-$currentWeatherSunsetColor: #a59ab2;
+$currentWeatherSunriseColor: var(--currentWeatherSunriseColor);
+$currentWeatherSunsetColor: var(--currentWeatherSunsetColor);
 
-$currentAppearentWeatherTempTextColor: #ddda9c;
+$currentAppearentWeatherTempTextColor: var(--currentAppearentWeatherTempTextColor);
 
-$currentWeatherWindTextColor: rgb(255, 255, 255);
-$currentWeatherWindBgColor: rgb(94 155 255);
+$currentWeatherWindTextColor: var(--currentWeatherWindTextColor);
+$currentWeatherWindBgColor: var(--currentWeatherWindBgColor);
 
-$WeatherCodeIconColor: #ea6868;
+$WeatherCodeIconColor: var(--WeatherCodeIconColor);
 
-$currentWeatherPrecipitationBgColor: rgb(133, 115, 254);
-$currentWeatherPrecipitationTextColor: rgb(255, 255, 255);
+$currentWeatherPrecipitationBgColor: var(--currentWeatherPrecipitationBgColor);
+$currentWeatherPrecipitationTextColor: var(--currentWeatherPrecipitationTextColor);
 
-$currentWeatherPrecipitationProbMaxBgColor: rgb(254, 115, 242);
-$currentWeatherPrecipitationProbMaxTextColor: rgb(255, 255, 255);
+$currentWeatherPrecipitationProbMaxBgColor: var(--currentWeatherPrecipitationProbMaxBgColor);
+$currentWeatherPrecipitationProbMaxTextColor: var(--currentWeatherPrecipitationProbMaxTextColor);
 
-$currentWeatherHumidityBgColor: rgb(254, 194, 115);
-$currentWeatherHumidityTextColor: rgb(255, 255, 255);
+$currentWeatherHumidityBgColor: var(--currentWeatherHumidityBgColor);
+$currentWeatherHumidityTextColor: var(--currentWeatherHumidityTextColor);
 
-$currentWeatherCelsiumColor: rgb(255, 255, 255);
+$currentWeatherCelsiumColor: var(--currentWeatherCelsiumColor);
 
-$BGCOLOR: linear-gradient(45deg, #3c3c3c, #646464);
+$BGCOLOR: var(--BGCOLOR);

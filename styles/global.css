@@ -1,3 +1,40 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
+
+:root {
+    --searchResultBg: rgb(235 235 235);
+    --serachBackground: rgb(255, 255, 255);
+
+
+    --currentWeatherCardBg: rgb(58, 58, 58);
+    --currentWeatherCityColor: rgb(156 147 96);
+    --currentWeatherTempColor: rgb(222 203 99);
+    --currentWeatherCardShadow: 2px 2px 20px black;
+
+    --currentDateTextColor: #ffffff;
+
+    --currentWeatherSunriseColor: #ffca35;
+    --currentWeatherSunsetColor: #a59ab2;
+
+    --currentAppearentWeatherTempTextColor: #ddda9c;
+
+    --currentWeatherWindTextColor: rgb(255, 255, 255);
+    --currentWeatherWindBgColor: rgb(94 155 255);
+
+    --WeatherCodeIconColor: #ea6868;
+
+    --currentWeatherPrecipitationBgColor: rgb(133, 115, 254);
+    --currentWeatherPrecipitationTextColor: rgb(255, 255, 255);
+
+    --currentWeatherPrecipitationProbMaxBgColor: rgb(254, 115, 242);
+    --currentWeatherPrecipitationProbMaxTextColor: rgb(255, 255, 255);
+
+    --currentWeatherHumidityBgColor: rgb(254, 194, 115);
+    --currentWeatherHumidityTextColor: rgb(255, 255, 255);
+
+    --currentWeatherCelsiumColor: rgb(255, 255, 255);
+
+    --BGCOLOR: linear-gradient(45deg, #3c3c3c, #646464);
+    display: block;
+}
