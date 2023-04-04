@@ -53,8 +53,14 @@ export function Menu() {
                     const vals = /rgb\((\d{1,3})[, ]+(\d{1,3})[, ]+(\d{1,3})\)/gm.exec(propValue)!
                     const hexValue = rgbToHex(Number(vals[1]), Number(vals[2]), Number(vals[3]))
                     inputRef.current!.setAttribute("value", hexValue)
-                } else {
+                }
+                else if(propValue.startsWith("linear")){
+                    const vals = /linear-gradient\(.?\d?.+#(.*).\d.*/gm.exec(propValue)!;
+                    inputRef.current!.setAttribute("value", `#${vals[1]}`)
+                } 
+                else {
                     console.error("no rule")
+                    console.error(propValue)
                 }
             } else {
                 inputRef.current!.setAttribute('value', customPropValue);

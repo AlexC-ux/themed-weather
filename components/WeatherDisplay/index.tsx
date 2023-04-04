@@ -5,7 +5,7 @@ import { WiSunrise, WiSunset, WiStrongWind, WiUmbrella, WiRain, WiDaySunny, WiDa
 import { MdCalendarMonth, MdOutlineWaterDrop, MdAccessibility, MdWaterDrop } from "react-icons/md";
 
 
-export interface Root {
+export interface IWEather {
     latitude: number
     longitude: number
     generationtime_ms: number
@@ -72,7 +72,7 @@ export interface Daily {
 
 export function WeatherDisplay() {
 
-    const [weather, setWeather] = useState<Root>()
+    const [weather, setWeather] = useState<IWEather>()
 
     const location = useContext(locationContext)
 
@@ -87,7 +87,7 @@ export function WeatherDisplay() {
         fetchWeatherController.abort();
         fetchWeatherController = new AbortController();
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${location.location.latitude}&longitude=${location.location.longitude}&hourly=weathercode,windspeed_10m,relativehumidity_2m,temperature_2m,apparent_temperature&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,sunrise,sunset,precipitation_probability_max&forecast_days=2&timezone=Europe/Moscow`, { signal: fetchWeatherController.signal }).then(data => {
-            data.json().then((weather: Root) => {
+            data.json().then((weather: IWEather) => {
                 setWeather(weather);
             })
         })
@@ -271,7 +271,11 @@ export function WeatherDisplay() {
         <div
             ref={hourlyScrollingContainerRef}
             className={styles.hourlyWeather}
-        >
+            onWheelCapture={(wheelEv) => {
+                hourlyScrollingContainerRef.current!.scrollBy({
+                    left: wheelEv.deltaY*6
+                });
+            }}>
             {weather?.hourly.time.map((val, index, arr) => {
                 return <div className={styles.hourlyWeatherItem} key={`hourly_${val}`}>
                     <div className={styles.time}>{new Date(val).toLocaleDateString("ru", { day: "2-digit", month: "2-digit" })}<br />{new Date(val).toLocaleTimeString("ru", { hour: "2-digit" })}:00</div>

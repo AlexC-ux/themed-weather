@@ -286,6 +286,7 @@ $cornerRadius: 20px;
     align-items: stretch;
     overflow-x: scroll;
     padding-bottom: 10px;
+    scroll-behavior: smooth;
 }
 
 .hourlyWeather::-webkit-scrollbar {
