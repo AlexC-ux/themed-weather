@@ -149,7 +149,7 @@ $cornerRadius: 20px;
     font-size: 1.1rem;
 }
 
-.params .weatherCode{
+.params .weatherCode {
     color: $WeatherCodeIconColor;
     font-size: 3rem;
 }
@@ -267,11 +267,77 @@ $cornerRadius: 20px;
         margin: 10px;
     }
 
-    .displayContainer{
+    .displayContainer {
         flex-wrap: wrap;
     }
-    
+
     .currentWeather {
         margin: 10px;
     }
+}
+
+.hourlyWeather {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-x: scroll;
+}
+
+.hourlyWeatherItem {
+    display: flex;
+    width: 100px;
+    box-shadow: 2px 2px 9px #2e2e2e;
+    padding: 10px;
+    border-radius: 15px;
+    background: $hourlyCardBg;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.hourlyWeatherItem .time {
+    color: bisque;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.hourlyWeatherItem .temp {
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.hourlyWeatherItem .temp::after {
+    content: '°C';
+}
+
+.hourlyWeatherItem .apparent_temp {
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.hourlyWeatherItem .apparent_temp::after {
+    content: '°C';
+}
+
+.hourlyWeatherItem .humidity {
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.hourlyWeatherItem .humidity::after {
+    content: '%';
 }

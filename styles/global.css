@@ -36,5 +36,6 @@
     --currentWeatherCelsiumColor: rgb(255, 255, 255);
 
     --BGCOLOR: linear-gradient(45deg, #3c3c3c, #646464);
-    display: block;
+
+    --hourlyCardBg: #667587;
 }
