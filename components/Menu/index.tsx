@@ -56,7 +56,8 @@ export function Menu() {
                 }
                 else if(propValue.startsWith("linear")){
                     const vals = /linear-gradient\(.?\d?.+#(.*).\d.*/gm.exec(propValue)!;
-                    inputRef.current!.setAttribute("value", `#${vals[1]}`)
+                    inputRef.current!.setAttribute("value", `#${vals[1].trim()}`)
+                    console.log(vals)
                 } 
                 else {
                     console.error("no rule")
