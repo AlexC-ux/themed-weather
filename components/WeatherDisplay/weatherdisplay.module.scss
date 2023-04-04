@@ -286,9 +286,24 @@ $cornerRadius: 20px;
     overflow-x: scroll;
 }
 
+.hourlyWeather::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.hourlyWeather::-webkit-scrollbar {
+    background-color: rgb(119, 119, 119);
+}
+
+.hourlyWeather::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
 .hourlyWeatherItem {
     display: flex;
-    width: 100px;
+    min-width: 100px;
     box-shadow: 2px 2px 9px #2e2e2e;
     padding: 10px;
     border-radius: 15px;
@@ -303,7 +318,9 @@ $cornerRadius: 20px;
 
 .hourlyWeatherItem .time {
     color: bisque;
+    margin-bottom: 10px;
     font-size: 1rem;
+    color: $hourlyDateText;
     font-weight: 600;
     width: 100%;
     text-align: center;
@@ -312,6 +329,7 @@ $cornerRadius: 20px;
 .hourlyWeatherItem .temp {
     font-size: 1.8rem;
     font-weight: 600;
+    color: $hourlyTempText;
     width: 100%;
     text-align: center;
 }
@@ -323,9 +341,15 @@ $cornerRadius: 20px;
 .hourlyWeatherItem .apparent_temp {
     font-size: 1.3rem;
     font-weight: 500;
+    color: $hourlyAppearentTempText;
     width: 100%;
     text-align: center;
 }
+
+.hourlyWeatherItem .apparent_temp svg {
+    font-size: 1rem;
+}
+
 
 .hourlyWeatherItem .apparent_temp::after {
     content: '°C';
@@ -334,10 +358,15 @@ $cornerRadius: 20px;
 .hourlyWeatherItem .humidity {
     font-size: 1.6rem;
     font-weight: 500;
+    color: $hourlyHumidityText;
     width: 100%;
     text-align: center;
 }
 
 .hourlyWeatherItem .humidity::after {
     content: '%';
+}
+
+.hourlyWeatherItem .humidity svg {
+    font-size: 1rem;
 }

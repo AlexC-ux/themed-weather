@@ -2,7 +2,7 @@ import { createRef, useContext, useEffect, useState } from "react"
 import styles from "./weatherdisplay.module.scss"
 import { locationContext } from "@/contextes/LocationContext"
 import { WiSunrise, WiSunset, WiStrongWind, WiUmbrella, WiRain, WiDaySunny, WiDayCloudy, WiFog, WiRainMix, WiSleet, WiRainWind, WiSnowWind, WiSnow, WiShowers, WiStormShowers, WiThunderstorm } from "react-icons/wi";
-import { MdCalendarMonth, MdOutlineWaterDrop } from "react-icons/md";
+import { MdCalendarMonth, MdOutlineWaterDrop, MdAccessibility, MdWaterDrop } from "react-icons/md";
 
 
 export interface Root {
@@ -75,6 +75,8 @@ export function WeatherDisplay() {
 
     const location = useContext(locationContext)
 
+    const hourlyScrollingContainerRef = createRef<HTMLDivElement>();
+
     const nowDate = new Date();
     const tomorrowDate = new Date();
     tomorrowDate.setDate(nowDate.getDate() + 1)
@@ -89,6 +91,10 @@ export function WeatherDisplay() {
             })
         })
     }, [location.location])
+
+    useEffect(()=>{
+        hourlyScrollingContainerRef.current?.scrollTo({left:(((weather?.hourly.time.length||48)/2)-(24-new Date().getHours()))*130})
+    }, [weather])
 
     function getWeatherIcon(weatherCode: number): JSX.Element {
         switch (weatherCode) {
@@ -261,13 +267,16 @@ export function WeatherDisplay() {
                 </div>
             </div>
         </div>
-        <div className={styles.hourlyWeather}>
-            {weather?.hourly.time.map((val, index) => {
+        <div
+            ref={hourlyScrollingContainerRef}
+            className={styles.hourlyWeather}
+        >
+            {weather?.hourly.time.map((val, index, arr) => {
                 return <div className={styles.hourlyWeatherItem}>
-                    <div className={styles.time}>{new Date(val).toLocaleDateString("ru",{day:"2-digit", month:"2-digit"})} {new Date(val).toLocaleTimeString("ru",{hour:"2-digit"})}:00</div>
-                    <div className={styles.temp}>3.0</div>
-                    <div className={styles.apparent_temp}>5.0</div>
-                    <div className={styles.humidity}>50</div>
+                    <div className={styles.time}>{new Date(val).toLocaleDateString("ru", { day: "2-digit", month: "2-digit" })}<br />{new Date(val).toLocaleTimeString("ru", { hour: "2-digit" })}:00</div>
+                    <div className={styles.temp}>{weather.hourly.temperature_2m[index]}</div>
+                    <div className={styles.apparent_temp}><MdAccessibility />{weather.hourly.apparent_temperature[index]}</div>
+                    <div className={styles.humidity}><MdWaterDrop />{weather.hourly.relativehumidity_2m[index]}</div>
                 </div>
             })}
         </div>
