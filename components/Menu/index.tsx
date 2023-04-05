@@ -29,9 +29,9 @@ export function Menu() {
             document.documentElement.style.scrollBehavior = ""
             setIconClasses(`${styles.menuIcon} ${styles.menuOpened}`)
         } else {
+            document.documentElement.style.overflow = "unset";
             setMenuShow(!menuShown)
             setIconClasses(`${styles.menuIcon}`)
-            document.documentElement.style.overflow = "scroll"
         }
     }
 
