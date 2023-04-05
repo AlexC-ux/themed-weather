@@ -25,11 +25,9 @@ export function Menu() {
     function showMenu() {
         if (!menuShown) {
             setMenuShow(!menuShown)
-            document.documentElement.style.overflow = "hidden";
             document.documentElement.style.scrollBehavior = ""
             setIconClasses(`${styles.menuIcon} ${styles.menuOpened}`)
         } else {
-            document.documentElement.style.overflow = "unset";
             setMenuShow(!menuShown)
             setIconClasses(`${styles.menuIcon}`)
         }
