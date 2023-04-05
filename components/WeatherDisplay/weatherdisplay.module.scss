@@ -31,6 +31,8 @@ $cornerRadius: 20px;
     border-radius: $cornerRadius;
     z-index: 300;
     padding: 20px;
+    background-size: cover;
+    background-position: center;
 }
 
 .displayContainer .degr {
@@ -190,6 +192,8 @@ $cornerRadius: 20px;
 .params .windSpeed {
     color: $currentWeatherWindTextColor;
     background: $currentWeatherWindBgColor;
+    background-size: cover;
+    background-position: center;
 }
 
 .params .windSpeed::after {
@@ -201,6 +205,8 @@ $cornerRadius: 20px;
     color: $currentWeatherPrecipitationTextColor;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
     background: $currentWeatherPrecipitationBgColor;
+    background-size: cover;
+    background-position: center;
 }
 
 .params .precipitation::after {
@@ -212,6 +218,8 @@ $cornerRadius: 20px;
     color: $currentWeatherPrecipitationProbMaxTextColor;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
     background: $currentWeatherPrecipitationProbMaxBgColor;
+    background-size: cover;
+    background-position: center;
 }
 
 .params .precipitationProbMax::after {
@@ -223,6 +231,8 @@ $cornerRadius: 20px;
     color: $currentWeatherHumidityTextColor;
     border-radius: $cornerRadius 0px $cornerRadius 0px;
     background: $currentWeatherHumidityBgColor;
+    background-size: cover;
+    background-position: center;
 }
 
 .params .humidity::after {
@@ -245,6 +255,8 @@ $cornerRadius: 20px;
     align-content: center;
     flex-wrap: wrap;
     background: $currentWeatherCardBg;
+    background-size: cover;
+    background-position: center;
     box-shadow: 2px 2px 20px black;
     border-radius: 20px;
     z-index: 290;
@@ -311,6 +323,8 @@ $cornerRadius: 20px;
     padding: 10px;
     border-radius: 15px;
     background: $hourlyCardBg;
+    background-size: cover;
+    background-position: center;
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;

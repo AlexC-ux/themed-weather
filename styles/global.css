@@ -7,13 +7,13 @@ body {
 }
 
 :root {
-    --searchResultBg: rgb(235 235 235);
-    --serachBackground: rgb(255, 255, 255);
+    --searchResultBg: #ebebeb;
+    --serachBackground: #ffffff;
 
 
-    --currentWeatherCardBg: rgb(58, 58, 58);
-    --currentWeatherCityColor: rgb(156 147 96);
-    --currentWeatherTempColor: rgb(222 203 99);
+    --currentWeatherCardBg: #3a3a3a;
+    --currentWeatherCityColor: #9c9360;
+    --currentWeatherTempColor: #decb63;
     --currentWeatherCardShadow: 2px 2px 20px black;
 
     --currentDateTextColor: #59ffa6;
@@ -23,21 +23,21 @@ body {
 
     --currentAppearentWeatherTempTextColor: #ddda9c;
 
-    --currentWeatherWindTextColor: rgb(255, 255, 255);
-    --currentWeatherWindBgColor: rgb(94 155 255);
+    --currentWeatherWindTextColor: #ffffff;
+    --currentWeatherWindBgColor: #5e9bff;
 
     --WeatherCodeIconColor: #ea6868;
 
-    --currentWeatherPrecipitationBgColor: rgb(133, 115, 254);
-    --currentWeatherPrecipitationTextColor: rgb(255, 255, 255);
+    --currentWeatherPrecipitationBgColor: #8573fe;
+    --currentWeatherPrecipitationTextColor: #ffffff;
 
-    --currentWeatherPrecipitationProbMaxBgColor: rgb(254, 115, 242);
-    --currentWeatherPrecipitationProbMaxTextColor: rgb(255, 255, 255);
+    --currentWeatherPrecipitationProbMaxBgColor: #fe73f2;
+    --currentWeatherPrecipitationProbMaxTextColor: #ffffff;
 
-    --currentWeatherHumidityBgColor: rgb(254, 194, 115);
-    --currentWeatherHumidityTextColor: rgb(255, 254, 253);
+    --currentWeatherHumidityBgColor: #fec273;
+    --currentWeatherHumidityTextColor: #fffefd;
 
-    --currentWeatherCelsiumColor: rgb(255, 255, 255);
+    --currentWeatherCelsiumColor: #ffffff;
 
     --BGCOLOR: linear-gradient(45deg, #3c3c3c, #646464);
 

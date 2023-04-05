@@ -4,7 +4,7 @@ import { CitySearch } from "../CitySearch"
 import styles from "./menu.module.scss"
 import { createRef, useEffect, useState } from "react"
 import { ColorPicker } from "../ColorPocker"
-import { SetGirlPreset, setCatShopPresets } from "@/presets"
+import { SetGirlPreset, setBrigdeOverRiverPreset, setCatShopPresets } from "@/presets"
 
 
 type cssParamType = 'searchResultBg' | 'serachBackground' | 'currentWeatherCardBg' | 'currentWeatherCityColor'
@@ -132,23 +132,32 @@ export function Menu() {
 
                 <div className={styles.settingsCategory}>Заготовленные пресеты</div>
                 <div className={styles.funcButtons}
-                style={{height:'auto'}}>
-                    <div 
-                    style={{
-                        background:"#fe73f2",
-                    }}
-                    className={styles.funcBtn}
+                    style={{ height: 'auto' }}>
+                    <div
+                        style={{
+                            background: "#fe73f2",
+                        }}
+                        className={styles.funcBtn}
                         onClick={SetGirlPreset}>
                         гёрл пресет
                     </div>
 
-                    <div 
-                    style={{
-                        background:"#82a0e5",
-                    }}
-                    className={styles.funcBtn}
+                    <div
+                        style={{
+                            background: "#82a0e5",
+                        }}
+                        className={styles.funcBtn}
                         onClick={setCatShopPresets}>
                         кошачья лавка
+                    </div>
+
+                    <div
+                        style={{
+                            background: "#82a0e5",
+                        }}
+                        className={styles.funcBtn}
+                        onClick={setBrigdeOverRiverPreset}>
+                        мостик у берега
                     </div>
                 </div>
             </div>

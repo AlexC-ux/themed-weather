@@ -8,6 +8,11 @@ export function setCatShopPresets() {
     setPreset(preset);
 }
 
+export function setBrigdeOverRiverPreset() {
+    const preset = { "cutom-color-param_currentWeatherWindBgColor_": "#889ddd96", "cutom-color-param_currentWeatherPrecipitationProbMaxTextColor_": "rgb(255, 255, 255)", "cutom-color-param_currentAppearentWeatherTempTextColor_": "#b3fff0ff", "cutom-color-param_hourlyAppearentTempText_": "#2affa4", "cutom-color-param_WeatherCodeIconColor_": "#85d0ffc8", "cutom-color-param_hourlyTempText_": "#55d6c9ff", "cutom-color-param_hourlyCardBg_": "linear-gradient(0deg, #5da0df6e, #2b5ea1dc)", "cutom-color-param_currentDateTextColor_": "#3f6469c8", "cutom-color-param_currentWeatherSunsetColor_": "#dac2ffff", "cutom-color-param_currentWeatherCardBg_": "linear-gradient(0deg, #5173d664, #79dcd164)", "cutom-color-param_hourlyWeathercode_": "#ffffffff", "cutom-color-param_currentWeatherSunriseColor_": "#dac2ffff", "cutom-color-param_currentWeatherWindTextColor_": "rgb(255, 255, 255)", "cutom-color-param_currentWeatherPrecipitationBgColor_": "#889ddd96", "cutom-color-param_currentWeatherCityColor_": "#ffffffff", "cutom-color-param_currentWeatherPrecipitationTextColor_": "rgb(255, 255, 255)", "cutom-color-param_BGCOLOR_": "url('https://wallpapers.com/images/featured/a5u9zq0a0ymy2dug.jpg')", "cutom-color-param_currentWeatherCelsiumColor_": "#3df5e9b4", "cutom-color-param_currentWeatherHumidityTextColor_": "rgb(255, 254, 253)", "cutom-color-param_currentWeatherTempColor_": "#3df5e9b4", "cutom-color-param_hourlyDateText_": "#ffffffff", "cutom-color-param_hourlyHumidityText_": "#8fceffff", "cutom-color-param_currentWeatherPrecipitationProbMaxBgColor_": "#889ddd96", "cutom-color-param_currentWeatherHumidityBgColor_": "#889ddd96" }
+    setPreset(preset);
+}
+
 function setPreset(preset: any) {
     Object.keys(preset).forEach(key => {
         window.localStorage.setItem(key, preset[key])
