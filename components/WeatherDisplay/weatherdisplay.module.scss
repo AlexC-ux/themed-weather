@@ -189,7 +189,7 @@ $cornerRadius: 20px;
 
 .params .windSpeed {
     color: $currentWeatherWindTextColor;
-    background-color: $currentWeatherWindBgColor;
+    background: $currentWeatherWindBgColor;
 }
 
 .params .windSpeed::after {
@@ -200,7 +200,7 @@ $cornerRadius: 20px;
 .params .precipitation {
     color: $currentWeatherPrecipitationTextColor;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
-    background-color: $currentWeatherPrecipitationBgColor;
+    background: $currentWeatherPrecipitationBgColor;
 }
 
 .params .precipitation::after {
@@ -211,7 +211,7 @@ $cornerRadius: 20px;
 .params .precipitationProbMax {
     color: $currentWeatherPrecipitationProbMaxTextColor;
     border-radius: 0px $cornerRadius 0px $cornerRadius;
-    background-color: $currentWeatherPrecipitationProbMaxBgColor;
+    background: $currentWeatherPrecipitationProbMaxBgColor;
 }
 
 .params .precipitationProbMax::after {
@@ -222,7 +222,7 @@ $cornerRadius: 20px;
 .params .humidity {
     color: $currentWeatherHumidityTextColor;
     border-radius: $cornerRadius 0px $cornerRadius 0px;
-    background-color: $currentWeatherHumidityBgColor;
+    background: $currentWeatherHumidityBgColor;
 }
 
 .params .humidity::after {
@@ -296,7 +296,7 @@ $cornerRadius: 20px;
 }
 
 .hourlyWeather::-webkit-scrollbar {
-    background-color: rgb(119, 119, 119);
+    background: rgb(119, 119, 119);
 }
 
 .hourlyWeather::-webkit-scrollbar-thumb {

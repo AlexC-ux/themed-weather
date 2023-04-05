@@ -3,6 +3,8 @@ import { MdOutlineSettings } from "react-icons/md"
 import { CitySearch } from "../CitySearch"
 import styles from "./menu.module.scss"
 import { createRef, useEffect, useState } from "react"
+import { ColorPicker } from "../ColorPocker"
+import { SetGirlPreset, setCatShopPresets } from "@/presets"
 
 
 type cssParamType = 'searchResultBg' | 'serachBackground' | 'currentWeatherCardBg' | 'currentWeatherCityColor'
@@ -20,11 +22,6 @@ export function Menu() {
 
     const [iconClasses, setIconClasses] = useState(`${styles.menuIcon}`);
 
-    function updateParam(props: { paramName: cssParamType, value: string }) {
-        document.documentElement.style.setProperty(`--${props.paramName}`, props.value)
-        window.localStorage.setItem(`cutom-color-param_${props.paramName}_`, props.value)
-    }
-
     function showMenu() {
         if (!menuShown) {
             setMenuShow(!menuShown)
@@ -40,44 +37,22 @@ export function Menu() {
 
 
     function UpdateParamField(props: { text: string, paramName: cssParamType }) {
-        const inputRef = createRef<HTMLInputElement>();
+
+
+        const picker = ColorPicker(props.paramName)
+
+        const inputRef = picker.ref;
 
         useEffect(() => {
-            const propValue = getComputedStyle(document.documentElement).getPropertyValue(`--${props.paramName}`).trim();
-            const customPropValue = window.localStorage.getItem(`cutom-color-param_${props.paramName}_`);
+            const propValue: string = getComputedStyle(document.documentElement).getPropertyValue(`--${props.paramName}`).trim();
+            const customPropValue: string | null = window.localStorage.getItem(`cutom-color-param_${props.paramName}_`);
 
             if (customPropValue == null) {
-                if (propValue.startsWith("#")) {
-                    inputRef.current!.setAttribute("value", propValue)
-                } else if (propValue.startsWith("rgb")) {
-                    const vals = /rgb\((\d{1,3})[, ]+(\d{1,3})[, ]+(\d{1,3})\)/gm.exec(propValue)!
-                    const hexValue = rgbToHex(Number(vals[1]), Number(vals[2]), Number(vals[3]))
-                    inputRef.current!.setAttribute("value", hexValue)
-                }
-                else if(propValue.startsWith("linear")){
-                    const vals = /linear-gradient\(.?\d?.+#(.*).\d.*/gm.exec(propValue)!;
-                    inputRef.current!.setAttribute("value", `#${vals[1].trim()}`)
-                    console.log(vals)
-                } 
-                else {
-                    console.error("no rule")
-                    console.error(propValue)
-                }
+                picker.setValue(propValue)
             } else {
-                inputRef.current!.setAttribute('value', customPropValue);
-                updateParam({ paramName: props.paramName, value: customPropValue })
+                picker.setValue(customPropValue);
             }
         })
-
-
-
-        function rgbToHex(red: number, green: number, blue: number) {
-            function ColorToHex(color: number) {
-                var hexadecimal = color.toString(16);
-                return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
-            }
-            return "#" + ColorToHex(red) + ColorToHex(green) + ColorToHex(blue);
-        }
 
 
         return <div className={`${styles.menuItem}`}>
@@ -85,10 +60,7 @@ export function Menu() {
                 {props.text}
             </div>
             <div>
-                <input
-                    type="color"
-                    ref={inputRef}
-                    onChange={(windInput) => { updateParam({ paramName: props.paramName, value: windInput.currentTarget.value }) }} />
+                {picker.element}
             </div>
         </div>
     }
@@ -110,7 +82,7 @@ export function Menu() {
             <div className={styles.menuItems}>
                 <div className={styles.funcButtons}>
                     <div className={styles.funcBtn}
-                        onClick={() => { window.localStorage.clear(); document.location.reload() }}>
+                        onClick={() => { window.localStorage.clear(); document.location.reload(); }}>
                         Сброс настроек
                     </div>
                 </div>
@@ -155,6 +127,30 @@ export function Menu() {
                 <UpdateParamField text="Цвет почасовой ощущаемой температуры" paramName='hourlyAppearentTempText' />
                 <UpdateParamField text="Цвет почасовой даты" paramName='hourlyDateText' />
 
+                <div className={styles.settingsCategory}>Другие настройки</div>
+                <UpdateParamField text="Фон" paramName='BGCOLOR' />
+
+                <div className={styles.settingsCategory}>Заготовленные пресеты</div>
+                <div className={styles.funcButtons}
+                style={{height:'auto'}}>
+                    <div 
+                    style={{
+                        background:"#fe73f2",
+                    }}
+                    className={styles.funcBtn}
+                        onClick={SetGirlPreset}>
+                        гёрл пресет
+                    </div>
+
+                    <div 
+                    style={{
+                        background:"#82a0e5",
+                    }}
+                    className={styles.funcBtn}
+                        onClick={setCatShopPresets}>
+                        кошачья лавка
+                    </div>
+                </div>
             </div>
         </div>
     </div>
