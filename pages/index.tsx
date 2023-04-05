@@ -17,7 +17,7 @@ export default function Home() {
         <LocationContextWrapper>
           <Menu/>
           <WeatherDisplay />
-          <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
+          <a href="https://open-meteo.com/" style={{fontSize:"6px", color:"#5555555f"}}>Weather data by Open-Meteo.com</a>
         </LocationContextWrapper>
       </main>
     </>

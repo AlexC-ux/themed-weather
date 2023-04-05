@@ -14,7 +14,7 @@ type cssParamType = 'searchResultBg' | 'serachBackground' | 'currentWeatherCardB
     | 'currentWeatherPrecipitationTextColor' | 'currentWeatherPrecipitationProbMaxBgColor' |
     'currentWeatherHumidityBgColor' | 'currentWeatherHumidityTextColor' | 'currentWeatherCelsiumColor' |
     'BGCOLOR' | 'currentWeatherPrecipitationProbMaxTextColor' | 'hourlyCardBg' | 'hourlyDateText' | 'hourlyTempText' |
-    'hourlyAppearentTempText' | 'hourlyHumidityText' | 'hourlyWeathercode'
+    'hourlyAppearentTempText' | 'hourlyHumidityText' | 'hourlyWeathercode'|'hourlyScrollColor'|'hourlyScrollThumbColor'
 
 export function Menu() {
 
@@ -127,6 +127,8 @@ export function Menu() {
 
                 <div className={styles.settingsCategory}>Другие настройки</div>
                 <UpdateParamField text="Фон" paramName='BGCOLOR' />
+                <UpdateParamField text="Прокрутка почасовой погоды" paramName='hourlyScrollColor' />
+                <UpdateParamField text="Ползунок прокрутки почасовой погоды" paramName='hourlyScrollThumbColor' />
 
                 <div className={styles.settingsCategory}>Заготовленные пресеты</div>
                 <div className={styles.funcButtons}

@@ -47,4 +47,7 @@ body {
     --hourlyAppearentTempText: #2affa4;
     --hourlyHumidityText: #95c3ff;
     --hourlyWeathercode: #ffffff;
+
+    --hourlyScrollColor: rgba(255, 255, 255, 0.254);
+    --hourlyScrollThumbColor: #b4b4b4;
 }
