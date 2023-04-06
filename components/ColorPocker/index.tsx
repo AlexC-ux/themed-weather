@@ -92,17 +92,17 @@ export function ColorPicker(paramName: string, pickerParams?: { color?: boolean,
                     <HideIcon />
                 </div>
                 <div className={styles.pickerSection}
-                    style={!pickerParams?.color ? { display: "none" } : {}}
+                    style={!pickerParams?.color==false ? { display: "none" } : {}}
                     onClick={() => { setColorShown(!colorShown); setSectionsShown(false); }}>
                     Цвет
                 </div>
                 <div className={styles.pickerSection}
-                    style={!pickerParams?.gradient ? { display: "none" } : {}}
+                    style={!pickerParams?.gradient==false ? { display: "none" } : {}}
                     onClick={() => { setGradShown(!gradShown); setSectionsShown(false); }}>
                     Градиент
                 </div>
                 <div className={styles.pickerSection}
-                    style={!pickerParams?.image ? { display: "none" } : {}}
+                    style={!pickerParams?.image==false ? { display: "none" } : {}}
                     onClick={() => { setImgShown(!imgShown); setSectionsShown(false); }}>
                     Ссылка на изображение
                 </div>
