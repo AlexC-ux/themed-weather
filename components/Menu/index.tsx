@@ -25,10 +25,11 @@ export function Menu() {
     function showMenu() {
         if (!menuShown) {
             setMenuShow(!menuShown)
-            document.documentElement.style.scrollBehavior = ""
+            document.body.style.overflowY="hidden"
             setIconClasses(`${styles.menuIcon} ${styles.menuOpened}`)
         } else {
             setMenuShow(!menuShown)
+            document.body.style.overflowY="scroll";
             setIconClasses(`${styles.menuIcon}`)
         }
     }
@@ -38,8 +39,6 @@ export function Menu() {
 
 
         const picker = ColorPicker(props.paramName)
-
-        const inputRef = picker.ref;
 
         useEffect(() => {
             const propValue: string = getComputedStyle(document.documentElement).getPropertyValue(`--${props.paramName}`).trim();
