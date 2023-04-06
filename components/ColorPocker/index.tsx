@@ -88,11 +88,11 @@ export function ColorPicker(paramName: string, pickerParams?: { color?: boolean,
                     display: sectionsShown ? "flex" : "none"
                 }}>
                 <div className={styles.pickerHideBtn}
-                    style={!pickerParams?.color ? { display: "none" } : {}}
                     onClick={() => { setSectionsShown(false); }}>
                     <HideIcon />
                 </div>
                 <div className={styles.pickerSection}
+                    style={!pickerParams?.color ? { display: "none" } : {}}
                     onClick={() => { setColorShown(!colorShown); setSectionsShown(false); }}>
                     Цвет
                 </div>
