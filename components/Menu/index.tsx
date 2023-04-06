@@ -35,10 +35,10 @@ export function Menu() {
     }
 
 
-    function UpdateParamField(props: { text: string, paramName: cssParamType }) {
+    function UpdateParamField(props: { text: string, paramName: cssParamType,pickerParams?:{color?:boolean,gradient?:boolean,image?:boolean} }) {
 
 
-        const picker = ColorPicker(props.paramName)
+        const picker = ColorPicker(props.paramName, props.pickerParams)
 
         useEffect(() => {
             const propValue: string = getComputedStyle(document.documentElement).getPropertyValue(`--${props.paramName}`).trim();
@@ -85,49 +85,49 @@ export function Menu() {
                 </div>
 
                 <div className={styles.settingsCategory}>Настройки карточки</div>
-                <UpdateParamField text="Фон скорости ветра" paramName='currentWeatherWindBgColor' />
-                <UpdateParamField text="Цвет скорости ветра" paramName='currentWeatherWindTextColor' />
+                <UpdateParamField text="Фон скорости ветра" paramName='currentWeatherWindBgColor'/>
+                <UpdateParamField text="Цвет скорости ветра" paramName='currentWeatherWindTextColor'  pickerParams={{gradient:false, image:false}}/>
 
                 <UpdateParamField text="Фон количества осадков" paramName="currentWeatherPrecipitationBgColor" />
-                <UpdateParamField text="Цвет количества осадков" paramName="currentWeatherPrecipitationTextColor" />
+                <UpdateParamField text="Цвет количества осадков" paramName="currentWeatherPrecipitationTextColor"  pickerParams={{gradient:false, image:false}}/>
 
 
                 <UpdateParamField text="Фон вероятности осадков" paramName="currentWeatherPrecipitationProbMaxBgColor" />
-                <UpdateParamField text="Цвет вероятности осадков" paramName="currentWeatherPrecipitationProbMaxTextColor" />
+                <UpdateParamField text="Цвет вероятности осадков" paramName="currentWeatherPrecipitationProbMaxTextColor"  pickerParams={{gradient:false, image:false}}/>
 
                 <UpdateParamField text="Фон влажности" paramName="currentWeatherHumidityBgColor" />
-                <UpdateParamField text="Цвет влажности" paramName="currentWeatherHumidityTextColor" />
+                <UpdateParamField text="Цвет влажности" paramName="currentWeatherHumidityTextColor"  pickerParams={{gradient:false, image:false}}/>
 
 
-                <UpdateParamField text="Цвет температуры" paramName="currentWeatherTempColor" />
-                <UpdateParamField text="Цвет градусов цельсия" paramName="currentWeatherCelsiumColor" />
+                <UpdateParamField text="Цвет температуры" paramName="currentWeatherTempColor"  pickerParams={{gradient:false, image:false}}/>
+                <UpdateParamField text="Цвет градусов цельсия" paramName="currentWeatherCelsiumColor"  pickerParams={{gradient:false, image:false}}/>
 
-                <UpdateParamField text="Цвет даты" paramName="currentDateTextColor" />
+                <UpdateParamField text="Цвет даты" paramName="currentDateTextColor"  pickerParams={{gradient:false, image:false}}/>
 
-                <UpdateParamField text="Цвет ощущаемой температуры" paramName="currentAppearentWeatherTempTextColor" />
+                <UpdateParamField text="Цвет ощущаемой температуры" paramName="currentAppearentWeatherTempTextColor" pickerParams={{gradient:false, image:false}} />
 
-                <UpdateParamField text="Цвет города" paramName="currentWeatherCityColor" />
+                <UpdateParamField text="Цвет города" paramName="currentWeatherCityColor"  pickerParams={{gradient:false, image:false}}/>
 
-                <UpdateParamField text="Цвет рассвета" paramName="currentWeatherSunriseColor" />
+                <UpdateParamField text="Цвет рассвета" paramName="currentWeatherSunriseColor"  pickerParams={{gradient:false, image:false}}/>
 
-                <UpdateParamField text="Цвет заката" paramName="currentWeatherSunsetColor" />
+                <UpdateParamField text="Цвет заката" paramName="currentWeatherSunsetColor"  pickerParams={{gradient:false, image:false}}/>
 
-                <UpdateParamField text="Цвет иконки погоды" paramName="WeatherCodeIconColor" />
+                <UpdateParamField text="Цвет иконки погоды" paramName="WeatherCodeIconColor"  pickerParams={{gradient:false, image:false}}/>
 
                 <UpdateParamField text="Фон карточки погоды" paramName="currentWeatherCardBg" />
 
                 <div className={styles.settingsCategory}>Настройки почасовых данных</div>
                 <UpdateParamField text="Фон почасовой погоды" paramName='hourlyCardBg' />
-                <UpdateParamField text="Цвет почасовой температуры" paramName='hourlyTempText' />
-                <UpdateParamField text="Цвет почасовой влажности" paramName='hourlyHumidityText' />
-                <UpdateParamField text="Цвет почасовой иконки" paramName='hourlyWeathercode' />
-                <UpdateParamField text="Цвет почасовой ощущаемой температуры" paramName='hourlyAppearentTempText' />
-                <UpdateParamField text="Цвет почасовой даты" paramName='hourlyDateText' />
+                <UpdateParamField text="Цвет почасовой температуры" paramName='hourlyTempText' pickerParams={{gradient:false, image:false}} />
+                <UpdateParamField text="Цвет почасовой влажности" paramName='hourlyHumidityText'  pickerParams={{gradient:false, image:false}}/>
+                <UpdateParamField text="Цвет почасовой иконки" paramName='hourlyWeathercode'  pickerParams={{gradient:false, image:false}}/>
+                <UpdateParamField text="Цвет почасовой ощущаемой температуры" paramName='hourlyAppearentTempText'  pickerParams={{gradient:false, image:false}}/>
+                <UpdateParamField text="Цвет почасовой даты" paramName='hourlyDateText'  pickerParams={{gradient:false, image:false}}/>
 
                 <div className={styles.settingsCategory}>Другие настройки</div>
                 <UpdateParamField text="Фон" paramName='BGCOLOR' />
-                <UpdateParamField text="Прокрутка почасовой погоды" paramName='hourlyScrollColor' />
-                <UpdateParamField text="Ползунок прокрутки почасовой погоды" paramName='hourlyScrollThumbColor' />
+                <UpdateParamField text="Прокрутка почасовой погоды" paramName='hourlyScrollColor'  pickerParams={{gradient:false, image:false}}/>
+                <UpdateParamField text="Ползунок прокрутки почасовой погоды" paramName='hourlyScrollThumbColor'  pickerParams={{gradient:false, image:false}}/>
 
                 <div className={styles.settingsCategory}>Заготовленные пресеты</div>
                 <div className={styles.funcButtons}

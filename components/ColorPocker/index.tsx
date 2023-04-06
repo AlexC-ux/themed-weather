@@ -3,7 +3,7 @@ import styles from "./colorpicker.module.scss"
 
 import { MdOutlineHideSource as HideIcon } from "react-icons/md";
 
-export function ColorPicker(paramName: string) {
+export function ColorPicker(paramName: string, pickerParams?: { color?: boolean, gradient?: boolean, image?: boolean }) {
     const inputRef = createRef<HTMLInputElement>();
 
     const [inputValue, setInputValue] = useState("");
@@ -88,6 +88,7 @@ export function ColorPicker(paramName: string) {
                     display: sectionsShown ? "flex" : "none"
                 }}>
                 <div className={styles.pickerHideBtn}
+                    style={!pickerParams?.color ? { display: "none" } : {}}
                     onClick={() => { setSectionsShown(false); }}>
                     <HideIcon />
                 </div>
@@ -96,10 +97,12 @@ export function ColorPicker(paramName: string) {
                     Цвет
                 </div>
                 <div className={styles.pickerSection}
+                    style={!pickerParams?.gradient ? { display: "none" } : {}}
                     onClick={() => { setGradShown(!gradShown); setSectionsShown(false); }}>
                     Градиент
                 </div>
                 <div className={styles.pickerSection}
+                    style={!pickerParams?.image ? { display: "none" } : {}}
                     onClick={() => { setImgShown(!imgShown); setSectionsShown(false); }}>
                     Ссылка на изображение
                 </div>
