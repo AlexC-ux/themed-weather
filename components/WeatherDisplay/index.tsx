@@ -156,10 +156,10 @@ export function WeatherDisplay() {
                     <div className={`${styles.mainContent}`}>
                         <div
                             className={styles.degr}>
-                            {weather?.current_weather.temperature.toFixed(2)}
+                            {weather?.current_weather.temperature.toFixed(0)}
                         </div>
                         <div className={styles.apparent_temp}>
-                            Ощущается как {weather?.hourly.apparent_temperature[new Date().getHours()].toFixed(1)}
+                            Ощущается как {weather?.hourly.apparent_temperature[new Date().getHours()].toFixed(0)}
                         </div>
                         <div className={styles.city}>
                             {location.location.name}
@@ -216,7 +216,7 @@ export function WeatherDisplay() {
                 <div className={`${styles.mainContent}`}>
                     <div
                         className={styles.degr}>
-                        {!!weather ? (weather?.daily.temperature_2m_max[1]).toFixed(1) : ""}
+                        {!!weather ? (weather?.daily.temperature_2m_max[1]).toFixed(0) : ""}
                     </div>
                     <div className={styles.city}>
                         {location.location.name}
@@ -280,8 +280,8 @@ export function WeatherDisplay() {
                 {weather?.hourly.time.map((val, index, arr) => {
                     return <div className={styles.hourlyWeatherItem} key={`hourly_${val}`}>
                         <div className={styles.time}>{new Date(val).toLocaleDateString("ru", { day: "2-digit", month: "2-digit" })}<br />{new Date(val).toLocaleTimeString("ru", { hour: "2-digit" })}:00</div>
-                        <div className={styles.temp}>{weather.hourly.temperature_2m[index]}</div>
-                        <div className={styles.apparent_temp}><MdAccessibility />{weather.hourly.apparent_temperature[index]}</div>
+                        <div className={styles.temp}>{weather.hourly.temperature_2m[index].toFixed(0)}</div>
+                        <div className={styles.apparent_temp}><MdAccessibility />{weather.hourly.apparent_temperature[index].toFixed(0)}</div>
                         <div className={styles.humidity}><MdWaterDrop />{weather.hourly.relativehumidity_2m[index]}</div>
                         <div className={styles.hourlyWeatherCode}>{getWeatherIcon(weather.hourly.weathercode[index])}</div>
                     </div>
