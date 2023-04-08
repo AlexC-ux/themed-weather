@@ -274,6 +274,13 @@ $cornerRadius: 20px;
     }
 }
 
+@media (min-width:1600px) {
+    .houtryWithContainer {
+        width: 1430px;
+        margin: auto;
+    }
+}
+
 @media (max-width:730px) {
     .nextDayWeather {
         position: relative;
