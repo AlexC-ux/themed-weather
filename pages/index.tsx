@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Head>
         <title>Themed WWWeather</title>
-        <meta name="description" content="Weather with your theme. Fast and usefull." />
+        <meta name="description" content="Weather with your theme. Fast and usefull. by AlexC-ux" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
